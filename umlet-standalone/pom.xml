@@ -9,6 +9,7 @@
 	<artifactId>umlet-standalone</artifactId>
 
 	<properties>
+		<maven.assembly.plugin.version>2.5.3</maven.assembly.plugin.version>
 	</properties>
 
 	<dependencies>
@@ -33,7 +34,7 @@
 			<!-- assemble UMLet output as zip file -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.5.3</version>
+				<version>${maven.assembly.plugin.version}</version>
 				<configuration>
 					<descriptor>src/assembly/dep.xml</descriptor>
 					<appendAssemblyId>false</appendAssemblyId>

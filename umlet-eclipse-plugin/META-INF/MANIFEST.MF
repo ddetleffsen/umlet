@@ -7,10 +7,10 @@ Bundle-SymbolicName: com.umlet.plugin;singleton:=true
 Bundle-Version: 14.4.0.qualifier
 Bundle-ClassPath: .,lib/bcel.jar,lib/batik-xml.jar,lib/javaparser-core
  .jar,lib/log4j.jar,lib/umlet-swing.jar,lib/commons-io.jar,lib/batik-a
- wt-util.jar,lib/javax.mail.jar,lib/batik-svggen.jar,lib/itextpdf.jar,
- lib/umlet-elements.jar,lib/batik-dom.jar,lib/batik-util.jar,lib/batik
- -ext.jar,lib/ecj.jar,lib/rsyntaxtextarea.jar,lib/slf4j-log4j12.jar,li
- b/autocomplete.jar,lib/jlibeps.jar,lib/slf4j-api.jar
+ wt-util.jar,lib/javax.mail.jar,lib/slf4j-log4j12.jar,lib/batik-svggen
+ .jar,lib/slf4j-api.jar,lib/itextpdf.jar,lib/umlet-elements.jar,lib/ba
+ tik-dom.jar,lib/batik-util.jar,lib/batik-ext.jar,lib/ecj.jar,lib/rsyn
+ taxtextarea.jar,lib/autocomplete.jar,lib/jlibeps.jar
 Bundle-Activator: com.baselet.plugin.MainPlugin
 Export-Package: com.baselet.plugin,com.baselet.plugin.gui,com.baselet.
  plugin.wizard

@@ -27,12 +27,32 @@
 	</scm>
 
 	<properties>
-		<tycho.version>0.26.0</tycho.version>
+		<java.version>1.8</java.version>
+		<tycho.version>1.2.0</tycho.version>
+		<mockito.version>2.23.4</mockito.version>
+		<junit.version>4.11</junit.version>
+		<assertj.version>3.11.1</assertj.version>
+		<guava.version>27.0-jre</guava.version>
+		<slf4j.version>1.7.25</slf4j.version>
+
+		<maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+		<maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
+		<maven.failsafe.plugin.version>2.22.1</maven.failsafe.plugin.version>
+		<maven.jar.plugin.version>3.1.0</maven.jar.plugin.version>
+		<maven.javadoc.plugin.version>3.0.1</maven.javadoc.plugin.version>
+		<maven.source.plugin.version>3.0.1</maven.source.plugin.version>
+		<p2.maven.plugin.version>1.1.1</p2.maven.plugin.version>
+		<maven.assembly.plugin.version>2.5.3</maven.assembly.plugin.version>
+		<maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
+		<plexus.compiler.javac.errorprone.version>2.5</plexus.compiler.javac.errorprone.version>
+		<error.prone.core.version>2.0.8</error.prone.core.version>
+		<findbugs.maven.plugin.version>3.0.5</findbugs.maven.plugin.version>
+		<animal.sniffer.maven.plugin.version>1.7</animal.sniffer.maven.plugin.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<animal.sniffer.java.api>java16</animal.sniffer.java.api>
 	</properties>
 
@@ -52,26 +72,26 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>1.9.5</version>
+			<version>${mockito.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- better assertions than junit and hamcrest; update to v2.3.0 if Umlet switches to Java7 -->
 		<dependency>
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
-			<version>1.7.1</version>
+			<version>${assertj.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>19.0</version>
+			<version>${guava.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -81,12 +101,12 @@
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
-				<version>1.7.7</version>
+				<version>${slf4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>
-				<version>1.7.13</version>
+				<version>${slf4j.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -152,7 +172,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.4</version>
+				<version>${maven.source.plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -169,21 +189,21 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>2.17</version>
+					<version>${maven.surefire.plugin.version}</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>2.4</version>
+					<version>${maven.jar.plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
-					<version>2.17</version>
+					<version>${maven.failsafe.plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
-					<version>1.8</version>
+					<version>${maven.antrun.plugin.version}</version>
 				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
 				<plugin>
@@ -292,7 +312,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.1</version>
+						<version>${maven.compiler.plugin.version}</version>
 						<configuration>
 							<compilerId>javac-with-errorprone</compilerId>
 							<forceJavacCompilerUse>true</forceJavacCompilerUse>
@@ -301,13 +321,13 @@
 							<dependency>
 								<groupId>org.codehaus.plexus</groupId>
 								<artifactId>plexus-compiler-javac-errorprone</artifactId>
-								<version>2.5</version>
+								<version>${plexus.compiler.javac.errorprone.version}</version>
 							</dependency>
 							<!-- override plexus-compiler-javac-errorprone's dependency on Error Prone with the latest version -->
 							<dependency>
 								<groupId>com.google.errorprone</groupId>
 								<artifactId>error_prone_core</artifactId>
-								<version>2.0.8</version>
+								<version>${error.prone.core.version}</version>
 							</dependency>
 						</dependencies>
 					</plugin>
@@ -315,7 +335,7 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>findbugs-maven-plugin</artifactId>
-						<version>3.0.3</version>
+						<version>${findbugs.maven.plugin.version}</version>
 						<executions>
 							<!-- Ensures that FindBugs inspects source code when project is compiled. -->
 							<execution>
@@ -334,7 +354,7 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>animal-sniffer-maven-plugin</artifactId>
-						<version>1.7</version>
+						<version>${animal.sniffer.maven.plugin.version}</version>
 						<executions>
 							<execution>
 								<id>check-java-api</id>
@@ -362,7 +382,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>2.10.1</version>
+						<version>${maven.javadoc.plugin.version}</version>
 						<configuration>
 							<excludePackageNames>com.baselet.element.facet.customdrawings.gen:com.baselet.element.facet.specific.sequence_aio.gen</excludePackageNames>
 						</configuration>
