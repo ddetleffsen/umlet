@@ -75,6 +75,12 @@ public class GUIListener implements KeyListener {
 						entitiesToBeMoved = handler.getDrawPanel().getGridElements();
 					}
 
+					// iterator().next() will throw NoSuchElementException if collection is empty
+					// e.g. if we have a new empty diagram
+					if (entitiesToBeMoved.isEmpty()) {
+						return;
+					}
+
 					Point opos = getOriginalPos(diffx, diffy, entitiesToBeMoved.iterator().next());
 					Vector<Command> ALL_MOVE_COMMANDS = GridElementListener.calculateFirstMoveCommands(diffx, diffy, opos, entitiesToBeMoved, e.isShiftDown(), true, handler, Collections.<Direction> emptySet());
 					handler.getController().executeCommand(new Macro(ALL_MOVE_COMMANDS));
