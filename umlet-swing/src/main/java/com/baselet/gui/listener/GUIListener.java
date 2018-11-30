@@ -75,8 +75,8 @@ public class GUIListener implements KeyListener {
 						entitiesToBeMoved = handler.getDrawPanel().getGridElements();
 					}
 
-					// iterator().next() will throw NoSuchElementException if collection is empty
-					// e.g. if we have a new empty diagram
+					// iterator().next() will throw NoSuchElementException on
+					// an empty collection
 					if (entitiesToBeMoved.isEmpty()) {
 						return;
 					}
